@@ -1,21 +1,21 @@
 spring:
    profiles:
-      active: dev-7777
+      active: dev-7788
 
 
 ---
 server:
-   port: 7777
+   port: 7788
    
 spring:
-   profiles: dev-7777
+   profiles: dev-7788
    application:
-      name: fresh-user
+      name: fresh-goods
    cloud:
       config:
          uri: http://127.0.0.1:5566/ #从配置服务器中读取配置文件
          label: master #从主分支中读取
-         name: config-fresh-user #文件前缀
+         name: config-fresh-goods #文件前缀
          profile: dev # {name}-{profile} .yml
          #descovery:
          #   enabled: true #开启配置发现
