@@ -1,4 +1,4 @@
-package com.hy.springcloud.fresh.user;
+package com.hy.fresh.user;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
