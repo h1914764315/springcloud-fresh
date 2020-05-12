@@ -1,12 +1,17 @@
-spring:
+server:
+   port: 5566
+
+spring: # 配置为本地读取
    application:
       name: fresh-config-server
+   profiles:
+      active: native # 说明是本地配置中心
    cloud:
       config:
          server:
-            git:
-               uri: https://github.com/h1914764315/springcloud-fresh.git
-               username: h1914764315
-               password: 9527ZHIHeYongzhi
-               default-label: master #分支
-               search-paths: springcloud-fresh-config/src/main/resources 
+            native:
+              search-locations: classpath:/config # 从当前项目的类路径下的config目录下找配置文件
+eureka:
+   client:
+      serviceUrl:
+         defaultZone: http://navy:123456@127.0.0.1:6868/eureka              
