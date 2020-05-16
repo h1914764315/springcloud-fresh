@@ -1,31 +1,60 @@
 spring:
    profiles:
-      active: dev-7788
-
+      active: dev-8888
 
 ---
 server:
-   port: 7788
-   
+   port: 8888
+
 spring:
-   profiles: dev-7788
+   profiles: dev-8888
    application:
       name: fresh-goods
    cloud:
       config:
-         uri: http://127.0.0.1:5566/ #从配置服务器中读取配置文件
-         label: master #从主分支中读取
+         uri: http://127.0.0.1:5566/ #从配置服务器中读取文件
+         label: master #从主分支读取
          name: config-fresh-goods #文件前缀
-         profile: dev # {name}-{profile} .yml
+         profile: dev #实际上读的是{name}-{profile}.yml
          #descovery:
-         #   enabled: true #开启配置发现
-         #   serviceId: fresh-config-server # 配置中心服务器名
-         
-# actuator监控,感应配置中心服务端的变化
+         #  enable: true #配置发现
+         #  serviceId: fresh-config-server #配置中心服务器名
+        
 management:
-   endpoint:
+   enpoint:
       shutdown:
-         enabled: false
-   endpoints:
+         enable: false
+   enpoints:
+     refresh:
+        enable: true
+
+---
+spring:
+   profiles:
+      active: dev-8889
+
+---
+server:
+   port: 8889
+
+spring:
+   profiles: dev-8889
+   application:
+      name: fresh-goods
+   cloud:
+      config:
+         uri: http://127.0.0.1:5566/ #从配置服务器中读取文件
+         label: master #从主分支读取
+         name: config-fresh-goods #文件前缀
+         profile: dev #实际上读的是{name}-{profile}.yml
+         #descovery:
+         #  enable: true #配置发现
+         #  serviceId: fresh-config-server #配置中心服务器名
+        
+management:
+   enpoint:
+      shutdown:
+         enable: false
+   enpoints:
       refresh:
-         enabled: true                         
+         enable: true           

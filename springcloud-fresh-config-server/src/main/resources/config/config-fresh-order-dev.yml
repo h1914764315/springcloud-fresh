@@ -39,7 +39,7 @@ spring:
 
 mybatis:
    mapper-locations: mapper/*Mapper.xml
-   type-aliasees-package: com.hy.fresh.order.entity
+   type-aliases-package: com.hy.fresh.entity
    
 eureka:
    client:
