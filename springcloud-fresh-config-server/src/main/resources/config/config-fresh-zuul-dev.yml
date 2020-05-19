@@ -36,4 +36,6 @@ zuul:
          path: /order/**
          serviceId: fresh-order
          sensitiveHeaders: "*"
-         
+ribbon:
+   ReadTimeout: 10000
+   ConnectTimeout: 10000         

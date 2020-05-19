@@ -22,6 +22,7 @@ import com.hy.fresh.util.SendMailUtil;
 @RestController
 @RequestMapping("/member")
 public class MemberInfoContoller {
+	@Autowired
 	private SendMailUtil sendMailUtil;
 	@Autowired
 	private IMemberInfoService service;
@@ -51,7 +52,7 @@ public class MemberInfoContoller {
 	
 	@RequestMapping("/reg")
 	public Map<String,Object> reg(HttpSession session, MemberInfo mf){
-		Object obj = session.getAttribute("code");
+		Object obj = session.getAttribute("sendCode");
 		if(obj == null) {
 			return ResponseUtil.responseMap(501, null, null);
 		}
